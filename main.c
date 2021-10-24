@@ -1,232 +1,232 @@
-/* USER CODE BEGIN Glava */
-/* *
-  ************************************************ ****************************
-  * @datoteka: main.c
-  * @brief : telo glavnega programa
-  ************************************************ ****************************
-  * @ pozornost
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file           : main.c
+  * @brief          : Main program body
+  ******************************************************************************
+  * @attention
   *
-  * <h2> <center> & copy; Avtorske pravice (c) 2021 STMicroelectronics.
-  * Vse pravice pridržane.</center></h2>
+  * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
+  * All rights reserved.</center></h2>
   *
-  * To programsko komponento licencira ST pod licenco BSD 3-Clause,
-  * "Licenca"; Te datoteke ne smete uporabljati razen v skladu z
-  * Licenca. Kopijo licence lahko dobite na:
-  * opensource.org/licenses/BSD-3-Clause
+  * This software component is licensed by ST under BSD 3-Clause license,
+  * the "License"; You may not use this file except in compliance with the
+  * License. You may obtain a copy of the License at:
+  *                        opensource.org/licenses/BSD-3-Clause
   *
-  ************************************************ ****************************
+  ******************************************************************************
   */
-/* Glava KONCA UPORABNIŠKE KODE */
-/* Vključuje ----------------------------------------------- ------------------- */
-# vključuje  " main.h "
+/* USER CODE END Header */
+/* Includes ------------------------------------------------------------------*/
+#include "main.h"
 
-/* Zasebno vključuje ------------------------------------------------------- ------------ */
-/* USER CODE BEGIN Vključuje */
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
 
-/ * KOD UPORABNIKA KONEC Vključuje */
+/* USER CODE END Includes */
 
-/* Private typedef ------------------------------------------------------- ------------- */
-/* UPORABNIŠKA KODA ZAČNI PTD */
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
 
-/* UPORABNIŠKA KODA KONEC PTD */
+/* USER CODE END PTD */
 
-/* Zasebno definiraj ------------------------------------------------------- -------------- */
-/ * KODA UPORABNIKA SE ZAČNE PD */
-/ * KOD UPORABNIKA KONEC PD */
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+/* USER CODE END PD */
 
-/* Zasebni makro ------------------------------------------------------- --------------- */
-/* UPORABNIŠKA KODA ZAČETEK PM */
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
 
-/* UPORABNIŠKA KODA KONEC PM */
+/* USER CODE END PM */
 
-/* Zasebne spremenljivke ------------------------------------------------------- ----------- */
+/* Private variables ---------------------------------------------------------*/
 
-/* UPORABNIŠKA KODA ZAČNI PV */
+/* USER CODE BEGIN PV */
 
-/ * KOD UPORABNIKA KONEC PV */
+/* USER CODE END PV */
 
-/* Prototipi zasebnih funkcij ----------------------------------------------------- -- */
-void  SystemClock_Config ( void );
-statična  praznina  MX_GPIO_Init ( void );
-/ * KODA UPORABNIKA SE ZAČNE PFP */
+/* Private function prototypes -----------------------------------------------*/
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+/* USER CODE BEGIN PFP */
 
-/* UPORABNIŠKA KODA KONEC PFP */
+/* USER CODE END PFP */
 
-/* Koda zasebnega uporabnika ----------------------------------------------------- ------------ */
-/* UPORABNIŠKA KODA ZAČNI 0 */
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
 
-/* UPORABNIŠKA KODA KONEC 0 */
+/* USER CODE END 0 */
 
-/* *
-  * @brief Vstopna točka aplikacije.
+/**
+  * @brief  The application entry point.
   * @retval int
   */
-int  main ( void )
+int main(void)
 {
-  / * KODA UPORABNIKA SE ZAČNE 1 */
+  /* USER CODE BEGIN 1 */
 	GPIO_PinState moja_tipka;
 
-  /* UPORABNIŠKA KODA KONEC 1 */
+  /* USER CODE END 1 */
 
-  /* Konfiguracija MCU-------------------------------------------------------- ---------- */
+  /* MCU Configuration--------------------------------------------------------*/
 
-  /* Ponastavi vse zunanje naprave, inicializira vmesnik Flash in Systick. */
-  HAL_Init ();
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
 
   /* USER CODE BEGIN Init */
 
-  /* KONEC USER CODE Init */
+  /* USER CODE END Init */
 
-  /* Konfigurirajte sistemsko uro */
-  SystemClock_Config ();
+  /* Configure the system clock */
+  SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
 
-  / * KODA UPORABNIKA END SysInit */
+  /* USER CODE END SysInit */
 
-  /* Inicializira vse konfigurirane zunanje naprave */
-  MX_GPIO_Init ();
-  / * KODA UPORABNIKA SE ZAČNE 2 */
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  /* USER CODE BEGIN 2 */
 
-  /* UPORABNIŠKA KODA KONEC 2 */
+  /* USER CODE END 2 */
 
-  /* Neskončna zanka */
-  / * KODA UPORABNIKA SE ZAČNE, medtem ko */
-  medtem ko ( 1 )
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  while (1)
   {
-    /* UPORABNIŠKA KODA SE KONČA DOKAJ */
+    /* USER CODE END WHILE */
 
-    /* UPORABNIŠKA KODA ZAČETEK 3 */
-	  HAL_GPIO_TogglePin (GPIOC, Modra_LED_Pin);
-	  HAL_Zamik ( 500 );
-	  moja_tipka = HAL_GPIO_ReadPin (GPIOA, GPIO_PIN_0);
-	  če (moja_tipka == 1 ){
-	    HAL_GPIO_WritePin (GPIOC, Zelena_LED_Pin, GPIO_PIN_SET);
+    /* USER CODE BEGIN 3 */
+	  HAL_GPIO_TogglePin(GPIOC, Modra_LED_Pin);
+	  HAL_Delay(500);
+	  moja_tipka = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0);
+	  if (moja_tipka == 1){
+	    HAL_GPIO_WritePin(GPIOC, Zelena_LED_Pin, GPIO_PIN_SET);
       }
-	  drugače {
-		  HAL_GPIO_WritePin (GPIOC, Zelena_LED_Pin, GPIO_PIN_RESET);
+	  else{
+		  HAL_GPIO_WritePin(GPIOC, Zelena_LED_Pin, GPIO_PIN_RESET);
 	  }
 
   }
-  /* UPORABNIŠKA KODA KONEC 3 */
+  /* USER CODE END 3 */
 }
 
-/* *
-  * @brief konfiguracija sistemske ure
-  * @retval Brez
+/**
+  * @brief System Clock Configuration
+  * @retval None
   */
-void  SystemClock_Config ( void )
+void SystemClock_Config(void)
 {
-  RCC_OscInitTypeDef RCC_OscInitStruct = { 0 };
-  RCC_ClkInitTypeDef RCC_ClkInitStruct = { 0 };
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
-  /* * Konfigurirajte izhodno napetost glavnega notranjega regulatorja
+  /** Configure the main internal regulator output voltage
   */
-  __HAL_PWR_VOLTAGESCALING_CONFIG (PWR_REGULATOR_VOLTAGE_SCALE1);
-  /* * Inicializira oscilatorje RCC glede na podane parametre
-  * v strukturi RCC_OscInitTypeDef.
+  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+  /** Initializes the RCC Oscillators according to the specified parameters
+  * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct. OscillatorType = RCC_OSCILLATORTYPE_HSI;
-  RCC_OscInitStruct. HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct. HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-  RCC_OscInitStruct. PLL . PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct. PLL . PLLSource = RCC_PLLSOURCE_HSI;
-  RCC_OscInitStruct. PLL . PLLMUL = RCC_PLL_MUL6;
-  RCC_OscInitStruct. PLL . PLLDIV = RCC_PLL_DIV3;
-  če ( HAL_RCC_OscConfig (&RCC_OscInitStruct) != HAL_OK)
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL6;
+  RCC_OscInitStruct.PLL.PLLDIV = RCC_PLL_DIV3;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
-    Obdelovalec_napake ();
+    Error_Handler();
   }
-  /* * Inicializira ure vodil CPU, AHB in APB
+  /** Initializes the CPU, AHB and APB buses clocks
   */
-  RCC_ClkInitStruct. Vrsta ure = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK
-                              | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct. SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-  RCC_ClkInitStruct. AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct. APB1CLKDivider = RCC_HCLK_DIV1;
-  RCC_ClkInitStruct. APB2CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if ( HAL_RCC_ClockConfig (&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
   {
-    Obdelovalec_napake ();
+    Error_Handler();
   }
 }
 
-/* *
-  * @brief funkcija inicializacije GPIO
-  * @param Brez
-  * @retval Brez
+/**
+  * @brief GPIO Initialization Function
+  * @param None
+  * @retval None
   */
-statična  praznina  MX_GPIO_Init ( void )
+static void MX_GPIO_Init(void)
 {
-  GPIO_InitTypeDef GPIO_InitStruct = { 0 };
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
 
-  / * Omogoči uro GPIO Ports */
-  __HAL_RCC_GPIOC_CLK_ENABLE ();
-  __HAL_RCC_GPIOH_CLK_ENABLE ();
-  __HAL_RCC_GPIOA_CLK_ENABLE ();
-  __HAL_RCC_GPIOB_CLK_ENABLE ();
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOH_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
-  /* Konfiguriraj izhodno raven zatiča GPIO */
-  HAL_GPIO_WritePin (GPIOC, Modra_LED_Pin|Zelena_LED_Pin, GPIO_PIN_RESET);
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOC, Modra_LED_Pin|Zelena_LED_Pin, GPIO_PIN_RESET);
 
-  /* Konfiguriraj GPIO pin: PA0 */
-  GPIO_InitStruct. Pin = GPIO_PIN_0;
-  GPIO_InitStruct. Način = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct. Potegni = GPIO_NOPULL;
-  HAL_GPIO_Init (GPIOA, &GPIO_InitStruct);
+  /*Configure GPIO pin : PA0 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /* Konfiguriraj zatiče GPIO: Modra_LED_Pin Zelena_LED_Pin */
-  GPIO_InitStruct. Pin = Modra_LED_Pin|Zelena_LED_Pin;
-  GPIO_InitStruct. Način = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct. Potegni = GPIO_NOPULL;
-  GPIO_InitStruct. Hitrost = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init (GPIOC, &GPIO_InitStruct);
+  /*Configure GPIO pins : Modra_LED_Pin Zelena_LED_Pin */
+  GPIO_InitStruct.Pin = Modra_LED_Pin|Zelena_LED_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
 }
 
-/* UPORABNIŠKA KODA ZAČETEK 4 */
-void  HAL_GPIO_EXIT_Callback ( uint16_t GPIO_Pin)
+/* USER CODE BEGIN 4 */
+void HAL_GPIO_EXIT_Callback(uint16_t GPIO_Pin)
 {
-	UNSED (GPIO_Pin);
-	HAL_GPIO_TogglePin (GPIOC, Zelena_LED_Pin);
-	za ( uint32_t i= 0 ; i< 10000 ; i++);
+	UNSED(GPIO_Pin);
+	HAL_GPIO_TogglePin(GPIOC, Zelena_LED_Pin);
+	for(uint32_t i=0; i<10000; i++);
 
 
 }
 
-/* UPORABNIŠKA KODA KONEC 4 */
+/* USER CODE END 4 */
 
-/* *
-  * @brief Ta funkcija se izvede v primeru napake.
-  * @retval Brez
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
   */
-void  Error_Handler ( void )
+void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
-  /* Uporabnik lahko doda svojo implementacijo, da poroča o stanju vrnitve napake HAL */
-  __disable_irq ();
-  medtem ko ( 1 )
+  /* User can add his own implementation to report the HAL error return state */
+  __disable_irq();
+  while (1)
   {
   }
-  / * KODA UPORABNIKA KONEC Napaka_Handler_Debug */
+  /* USER CODE END Error_Handler_Debug */
 }
 
-# Ifdef   USE_FULL_ASSERT
-/* *
-  * @brief Poroča o imenu izvorne datoteke in številki izvorne vrstice
-  * kjer je prišlo do napake assert_param.
-  * @param datoteka: kazalec na ime izvorne datoteke
-  * @param vrstica: assert_param izvorna številka vrstice napake
-  * @retval Brez
+#ifdef  USE_FULL_ASSERT
+/**
+  * @brief  Reports the name of the source file and the source line number
+  *         where the assert_param error has occurred.
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
   */
-void  assert_failed ( uint8_t *file, uint32_t vrstica)
+void assert_failed(uint8_t *file, uint32_t line)
 {
-  / * KODA UPORABNIKA SE ZAČNE 6 */
-  /* Uporabnik lahko doda svojo implementacijo, da sporoči ime datoteke in številko vrstice,
-     npr: printf("Napačna vrednost parametrov: datoteka %s v vrstici %d\r\n", datoteka, vrstica) */
-  /* UPORABNIŠKA KODA KONEC 6 */
+  /* USER CODE BEGIN 6 */
+  /* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+  /* USER CODE END 6 */
 }
-# endif  /* USE_FULL_ASSERT */
+#endif /* USE_FULL_ASSERT */
 
-/* *********************** (C) COPYRIGHT STMicroelectronics ***** KONEC DATOTEKE *** */
+/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
